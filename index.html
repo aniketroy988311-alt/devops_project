@@ -1,0 +1,1257 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Mastery Course</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f5f7fa;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #111827;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900;
+        }
+
+        .nav-btn {
+            background: #ff9900;
+            color: #111 !important;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 600px;
+            background: linear-gradient(135deg, #111827, #1e293b);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ff9900;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #ff9900;
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            background: #ffad32;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #ff9900;
+            color: #ff9900;
+        }
+
+        .btn-outline:hover {
+            background: #ff9900;
+            color: #111;
+        }
+
+        .hero-card {
+            background: white;
+            color: #222;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        }
+
+        .hero-card h2 {
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero-card ul {
+            list-style: none;
+        }
+
+        .hero-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-card li::before {
+            content: "✓";
+            color: #ff9900;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 80px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* STATS */
+        .stats {
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .stat h3 {
+            color: #ff9900;
+            font-size: 35px;
+        }
+
+        .stat p {
+            color: #64748b;
+        }
+
+        /* TOPICS */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+            border-top: 4px solid #ff9900;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .topic-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .topic-card h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .topic-card p {
+            color: #64748b;
+        }
+
+        /* COURSE MODULES */
+        .modules {
+            background: #111827;
+            color: white;
+        }
+
+        .modules .section-title h2 {
+            color: white;
+        }
+
+        .module {
+            background: #1f2937;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .module-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-header:hover {
+            background: #263449;
+        }
+
+        .module-header h3 {
+            color: #ff9900;
+        }
+
+        .module-content {
+            display: none;
+            padding: 0 20px 20px;
+            color: #d1d5db;
+        }
+
+        .module-content ul {
+            margin-left: 20px;
+        }
+
+        .module-content li {
+            margin: 7px 0;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .price-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .price-card.featured {
+            border: 3px solid #ff9900;
+            transform: scale(1.03);
+        }
+
+        .price-card h3 {
+            font-size: 25px;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff9900;
+            margin: 15px 0;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .price-card li {
+            padding: 8px;
+            color: #64748b;
+        }
+
+        /* INSTRUCTOR */
+        .instructor {
+            background: white;
+        }
+
+        .instructor-box {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .instructor-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff9900;
+            font-size: 80px;
+        }
+
+        .instructor-info h2 {
+            margin-bottom: 10px;
+        }
+
+        .instructor-info p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .stars {
+            color: #ff9900;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px;
+            color: #64748b;
+        }
+
+        /* CTA */
+        .cta {
+            background: #ff9900;
+            text-align: center;
+            padding: 70px 25px;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .cta .btn {
+            background: #111827;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 50px 25px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: #ff9900;
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer li {
+            color: #9ca3af;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin: 8px 0;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ff9900;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #9ca3af;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid,
+            .pricing-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .topics-grid,
+            .pricing-grid,
+            .testimonial-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .instructor-image {
+                margin: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <nav>
+        <div class="logo">AWS<span> Academy</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#topics">Topics</a></li>
+            <li><a href="#modules">Course</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a href="#enroll" class="nav-btn">Enroll Now</a>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div>
+            <p style="color:#ff9900; font-weight:bold;">
+                AWS CLOUD COMPUTING COURSE
+            </p>
+
+            <h1>
+                Master <span>Amazon Web Services</span>
+                From Beginner to Professional
+            </h1>
+
+            <p>
+                Learn AWS Cloud Computing, EC2, S3, IAM, VPC,
+                RDS, Lambda, Docker, DevOps and more through
+                practical projects.
+            </p>
+
+            <div class="buttons">
+                <a href="#enroll" class="btn btn-primary">
+                    Start Learning
+                </a>
+
+                <a href="#modules" class="btn btn-outline">
+                    View Course
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <h2>What You Will Learn</h2>
+
+            <ul>
+                <li>AWS Cloud Fundamentals</li>
+                <li>EC2 & Linux Servers</li>
+                <li>S3 Storage</li>
+                <li>IAM & Security</li>
+                <li>VPC & Networking</li>
+                <li>RDS & Databases</li>
+                <li>Lambda & Serverless</li>
+                <li>CloudWatch & Monitoring</li>
+                <li>Docker & AWS DevOps</li>
+                <li>Real-World AWS Projects</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- STATS -->
+<section class="stats">
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Lessons</p>
+            </div>
+
+            <div class="stat">
+                <h3>15+</h3>
+                <p>AWS Services</p>
+            </div>
+
+            <div class="stat">
+                <h3>10+</h3>
+                <p>Projects</p>
+            </div>
+
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Learning Access</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- AWS TOPICS -->
+<section id="topics">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>AWS Course Topics</h2>
+            <p>Learn the most important AWS services and cloud technologies.</p>
+        </div>
+
+        <div class="topics-grid">
+
+            <div class="topic-card">
+                <div class="topic-icon">☁️</div>
+                <h3>AWS Fundamentals</h3>
+                <p>
+                    Learn cloud computing concepts, AWS regions,
+                    availability zones and global infrastructure.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🖥️</div>
+                <h3>Amazon EC2</h3>
+                <p>
+                    Launch and manage virtual servers,
+                    security groups, key pairs and AMIs.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">📦</div>
+                <h3>Amazon S3</h3>
+                <p>
+                    Learn object storage, buckets, permissions,
+                    versioning and lifecycle policies.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🔐</div>
+                <h3>AWS IAM</h3>
+                <p>
+                    Understand users, groups, roles, policies
+                    and AWS identity security.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🌐</div>
+                <h3>AWS VPC</h3>
+                <p>
+                    Build secure cloud networks using subnets,
+                    route tables, gateways and security groups.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🗄️</div>
+                <h3>Amazon RDS</h3>
+                <p>
+                    Work with managed relational databases,
+                    backups, replicas and database security.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">⚡</div>
+                <h3>AWS Lambda</h3>
+                <p>
+                    Build serverless applications and execute
+                    code without managing servers.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">📊</div>
+                <h3>CloudWatch</h3>
+                <p>
+                    Monitor AWS resources, create alarms,
+                    logs and performance dashboards.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🚀</div>
+                <h3>AWS DevOps</h3>
+                <p>
+                    Learn CI/CD, Docker, deployment pipelines
+                    and cloud automation.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- COURSE MODULES -->
+<section class="modules" id="modules">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Complete Course Curriculum</h2>
+            <p style="color:#9ca3af;">
+                Follow the modules step by step.
+            </p>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 1 — Cloud Computing Fundamentals</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>What is Cloud Computing?</li>
+                    <li>IaaS, PaaS and SaaS</li>
+                    <li>Public, Private and Hybrid Cloud</li>
+                    <li>AWS Global Infrastructure</li>
+                    <li>Regions and Availability Zones</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 2 — Amazon EC2</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>Launching EC2 Instances</li>
+                    <li>AMI and Instance Types</li>
+                    <li>Key Pairs</li>
+                    <li>Security Groups</li>
+                    <li>Connecting using SSH</li>
+                    <li>Installing applications on EC2</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 3 — Amazon S3</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>Create and manage S3 buckets</li>
+                    <li>Upload and download objects</li>
+                    <li>Bucket policies</li>
+                    <li>Versioning</li>
+                    <li>Lifecycle management</li>
+                    <li>Static website hosting</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 4 — IAM & AWS Security</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>IAM Users and Groups</li>
+                    <li>IAM Roles</li>
+                    <li>Policies</li>
+                    <li>Multi-Factor Authentication</li>
+                    <li>Principle of Least Privilege</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 5 — AWS Networking</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>VPC</li>
+                    <li>Public and Private Subnets</li>
+                    <li>Route Tables</li>
+                    <li>Internet Gateway</li>
+                    <li>NAT Gateway</li>
+                    <li>Security Groups and NACLs</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 6 — Databases</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>Amazon RDS</li>
+                    <li>MySQL Database</li>
+                    <li>Database Backups</li>
+                    <li>Read Replicas</li>
+                    <li>Amazon DynamoDB</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 7 — Serverless Computing</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>AWS Lambda</li>
+                    <li>API Gateway</li>
+                    <li>Event-driven architecture</li>
+                    <li>Serverless applications</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <h3>Module 8 — AWS DevOps & Projects</h3>
+                <span>+</span>
+            </div>
+
+            <div class="module-content">
+                <ul>
+                    <li>Docker basics</li>
+                    <li>CI/CD concepts</li>
+                    <li>AWS CodePipeline</li>
+                    <li>CloudWatch monitoring</li>
+                    <li>Deployment project</li>
+                    <li>Final AWS Cloud project</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Choose Your Plan</h2>
+            <p>Start learning AWS today.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <div class="price-card">
+                <h3>Basic</h3>
+                <div class="price">₹999</div>
+
+                <ul>
+                    <li>✓ AWS Fundamentals</li>
+                    <li>✓ EC2</li>
+                    <li>✓ S3</li>
+                    <li>✓ IAM</li>
+                    <li>✗ Live Projects</li>
+                    <li>✗ Certificate</li>
+                </ul>
+
+                <a href="#enroll" class="btn btn-outline">
+                    Choose Plan
+                </a>
+            </div>
+
+
+            <div class="price-card featured">
+                <h3>Professional</h3>
+                <div class="price">₹2,499</div>
+
+                <ul>
+                    <li>✓ Complete AWS Course</li>
+                    <li>✓ EC2 & S3</li>
+                    <li>✓ IAM & VPC</li>
+                    <li>✓ RDS & Lambda</li>
+                    <li>✓ Live Projects</li>
+                    <li>✓ Certificate</li>
+                </ul>
+
+                <a href="#enroll" class="btn btn-primary">
+                    Most Popular
+                </a>
+            </div>
+
+
+            <div class="price-card">
+                <h3>Premium</h3>
+                <div class="price">₹4,999</div>
+
+                <ul>
+                    <li>✓ Everything in Professional</li>
+                    <li>✓ AWS DevOps</li>
+                    <li>✓ Docker</li>
+                    <li>✓ CI/CD</li>
+                    <li>✓ Career Guidance</li>
+                    <li>✓ Interview Preparation</li>
+                </ul>
+
+                <a href="#enroll" class="btn btn-outline">
+                    Choose Plan
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INSTRUCTOR -->
+<section class="instructor">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Meet Your Instructor</h2>
+        </div>
+
+        <div class="instructor-box">
+
+            <div class="instructor-image">
+                👨‍💻
+            </div>
+
+            <div class="instructor-info">
+                <h2>Senior Cloud Instructor</h2>
+
+                <p>
+                    Learn AWS from an experienced cloud professional
+                    through practical demonstrations, real-world
+                    projects and hands-on labs.
+                </p>
+
+                <p>
+                    <strong>Experience:</strong>
+                    AWS Cloud | Linux | Networking | DevOps
+                </p>
+
+                <p>
+                    <strong>Teaching Style:</strong>
+                    Beginner-friendly + Practical + Project-based
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>What Students Say</h2>
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "The AWS concepts were explained very clearly.
+                    The EC2 and VPC practicals helped me understand
+                    cloud networking."
+                </p>
+                <strong>— Rahul</strong>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Excellent course for beginners. The hands-on
+                    projects made AWS much easier to understand."
+                </p>
+                <strong>— Priya</strong>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "I especially liked the Linux, EC2 and DevOps
+                    sections. Very useful for cloud career preparation."
+                </p>
+                <strong>— Arjun</strong>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq">
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is this course suitable for beginners?
+                    <span>+</span>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. The course starts with cloud computing
+                    fundamentals and gradually moves to advanced AWS topics.
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Do I need programming knowledge?
+                    <span>+</span>
+                </div>
+
+                <div class="faq-answer">
+                    Basic programming knowledge is helpful, but it is
+                    not mandatory for learning the core AWS services.
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Will I get practical projects?
+                    <span>+</span>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. The course includes hands-on AWS labs and
+                    real-world cloud projects.
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is a certificate provided?
+                    <span>+</span>
+                </div>
+
+                <div class="faq-answer">
+                    A course completion certificate can be provided
+                    according to the selected plan.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CALL TO ACTION -->
+<section class="cta" id="enroll">
+    <h2>Ready to Start Your AWS Journey?</h2>
+
+    <p>
+        Learn cloud computing skills and build real-world AWS projects.
+    </p>
+
+    <a href="mailto:your-email@example.com" class="btn">
+        Enroll Now
+    </a>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>AWS Academy</h3>
+            <p>
+                A practical AWS cloud computing course designed
+                for students, beginners and IT professionals.
+            </p>
+        </div>
+
+        <div>
+            <h3>Course</h3>
+            <ul>
+                <li><a href="#topics">AWS Topics</a></li>
+                <li><a href="#modules">Curriculum</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <ul>
+                <li>Email: your-email@example.com</li>
+                <li>Phone: +91 XXXXX XXXXX</li>
+                <li>India</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 AWS Academy. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* COURSE MODULE ACCORDION */
+
+    function toggleModule(element) {
+
+        const content = element.nextElementSibling;
+        const icon = element.querySelector("span");
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.textContent = "+";
+        } else {
+            content.style.display = "block";
+            icon.textContent = "−";
+        }
+    }
+
+
+    /* FAQ ACCORDION */
+
+    function toggleFAQ(element) {
+
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector("span");
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.textContent = "+";
+        } else {
+            answer.style.display = "block";
+            icon.textContent = "−";
+        }
+    }
+
+</script>
+
+</body>
+</html>
+```
